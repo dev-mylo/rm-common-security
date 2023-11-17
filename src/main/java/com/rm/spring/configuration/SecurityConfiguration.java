@@ -93,7 +93,15 @@ public abstract class SecurityConfiguration {
      */
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().antMatchers("/ignore1", "/ignore2");
+        return (web) -> web.ignoring().antMatchers("/swagger*/**",
+                "/webjars/**",
+                "/configuration/**",
+                "/v2/api-docs",
+                "/",
+                "/csrf",
+                "/health",
+                "/cache/**",
+                "/favicon.ico");
     }
 
 
